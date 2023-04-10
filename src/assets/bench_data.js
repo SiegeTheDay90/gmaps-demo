@@ -1,4 +1,5 @@
 export default [{
+    "id": 1,
 "title": "Andrew Haswell Green Bench",
 "description": "Lorem Ipsum Descriptum 1",
 "price": 25.75,
@@ -8,6 +9,7 @@ export default [{
 },
 
 {
+    "id": 2,
 "title": "Charles B. Stover Bench",
 "description": "Lorem Ipsum Descriptum 2",
 "price": 39.95,
@@ -17,6 +19,7 @@ export default [{
 },
 
 {
+    "id": 3,
 "title": "Sunnyside Park Bench",
 "description": "Lorem Ipsum Descriptum 3",
 "price": 14.99,

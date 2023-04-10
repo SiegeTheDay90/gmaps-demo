@@ -5,21 +5,42 @@ import benches from './assets/bench_data.js';
 function App() {
 
   const mapRef = useRef();
-  // const markers = useRef({});
+  const markers = useRef({});
   const [map, setMap] = useState(null);
-  const first_bench = benches[0]
+  const averageLatLng = {lat: 0, lng: 0}
 
   useEffect(() => {
     if(!map){
       setMap(new window.google.maps.Map(mapRef.current, {
         center:{
-          lat: first_bench.lat,
-          lng: first_bench.lng
+          lat: averageLatLng.lat,
+          lng: averageLatLng.lng
         },
         zoom: 11
       }))
     }
   }, [])
+
+  useEffect(() => {
+    if(benches[0]){
+      benches.forEach(bench => {
+        averageLatLng.lat += bench.lat
+        averageLatLng.lng += bench.lng
+      })
+      averageLatLng.lat /= benches.length
+      averageLatLng.lng /= benches.length
+    }
+
+    markers.current = {}
+
+    benches.forEach(bench => {
+      markers.current[bench.id] = new window.google.maps.Marker({
+        position: {lat: bench.lat, lng: bench.lng},
+        map: map
+      })
+    })
+
+  }, [map])
   
   return (
     <div ref={mapRef} id="map"></div>
