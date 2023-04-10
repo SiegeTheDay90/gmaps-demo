@@ -1,4 +1,4 @@
-[{
+export default [{
 "title": "Andrew Haswell Green Bench",
 "description": "Lorem Ipsum Descriptum 1",
 "price": 25.75,
