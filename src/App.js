@@ -36,7 +36,15 @@ function App() {
     benches.forEach(bench => {
       markers.current[bench.id] = new window.google.maps.Marker({
         position: {lat: bench.lat, lng: bench.lng},
-        map: map
+        map: map,
+        title: `$${bench.price}`,
+        label: `$${bench.price}`
+        // icon: {
+        //   url: 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="50" height="40"><foreignObject width="100%" height="100%"><div xmlns="http://www.w3.org/1999/xhtml" class="marker-price">$${bench.price}</div></foreignObject></svg>`),
+        //   size: new window.google.maps.Size(126, 53),
+        //   origin: new window.google.maps.Point(0, 0),
+        //   anchor: new window.google.maps.Point(20, 20)
+        // },
       })
       markers.current[bench.id].addListener('click', () => {
         alert(`That's ${bench.title}!`)
