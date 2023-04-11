@@ -7,7 +7,7 @@ function App() {
   const mapRef = useRef();
   const markers = useRef({});
   const [map, setMap] = useState(null);
-  const averageLatLng = {lat: 0, lng: 0}
+  const averageLatLng = {lat: 0, lng: 0};
 
   useEffect(() => {
     if(!map){
@@ -37,6 +37,9 @@ function App() {
       markers.current[bench.id] = new window.google.maps.Marker({
         position: {lat: bench.lat, lng: bench.lng},
         map: map
+      })
+      markers.current[bench.id].addListener('click', () => {
+        alert(`That's ${bench.title}!`)
       })
     })
 
